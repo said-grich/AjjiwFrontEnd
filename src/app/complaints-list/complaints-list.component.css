@@ -1,0 +1,19 @@
+.dec-table{
+
+  padding: 20px;
+  width: 100%;
+}
+.title{
+  margin-top: 50px;
+  padding: 20px;
+  font-family: Poppins;
+  font-weight: bold;
+}
+.dec-table thead{
+  background-color: blueviolet;
+  color: aliceblue;
+}
+.tableImg{
+  padding: 8px;
+  border-radius: 20px;
+}

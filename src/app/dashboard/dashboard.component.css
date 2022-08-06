@@ -1,0 +1,12 @@
+.box{
+  height: 120px;
+  background-color: blueviolet;
+  color: aliceblue;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  font-family: Poppins;
+}
+.box h1{
+  margin-left: 20px;
+}

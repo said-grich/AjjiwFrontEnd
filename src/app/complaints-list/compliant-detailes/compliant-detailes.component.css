@@ -1,0 +1,57 @@
+.title{
+  margin-top: 50px;
+  padding: 20px;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.match-parent{
+  height: 800px;
+}
+
+
+p {
+  background-color: #eee;
+  font-family:Arial, Helvetica, sans-serif;
+  width: 500px;
+  margin: 10px auto;
+  padding: 15px;
+  border-right: 5px solid #EBD671;
+  position: relative;
+  height: 60px;
+}
+
+
+.head-li {
+  background-color: #EBD671;
+  border-left: 1px solid #EBD671;
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+  position: absolute;
+  left: -30px;
+  top: 0px;
+  width: 120px;
+  margin-left: 10px;
+  height: 60px;
+}
+img{
+  height: 300px;
+}
+.marker {
+  background-image: url('src/assets/icons/mapbox-icon.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}

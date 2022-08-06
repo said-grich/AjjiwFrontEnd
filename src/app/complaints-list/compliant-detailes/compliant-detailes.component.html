@@ -1,0 +1,35 @@
+<h1 class="text-center h1">{{this.complaint['title']}}</h1>
+<div mat-dialog-content class="mat-typography">
+  <main class="container-fluid">
+    <div class="d-flex align-items-center flex-column col-12" style="height:800px">
+      <div class="d-flex justify-content-center">
+        <img class="text-center col-12" src="{{baseurl+this.complaint['photoUri']}}" height="800px"
+             style="border-radius: 25px; padding: 10px">
+      </div>
+      <p role="listitem"><span class="head-li">Description : </span> <span class="offset-3">{{complaint["content"]}}</span></p>
+      <p role="listitem">
+        <span class="col-2 head-li">Date :</span>
+      <span class="offset-3">{{ toLocalDate(complaint["dateDecl"])}}</span>
+      </p>
+      <p role="listitem"><span class="head-li">Utilisateur : </span>  <span class="offset-3">{{complaint['user']['nom'] + " " + complaint['user']['prenom']}}
+      </span> </p>
+      <p role="listitem" ><span class="head-li">Address :  </span> <span class="offset-3">{{complaint["adresse"]}} </span> </p>
+      <p role="listitem"><span class="head-li">Etat :  </span>
+        <span class="offset-3"> <button mat-raised-button
+                [color]="this.setColorByEtat(complaint['etatDeclarations'][0]['etat']['libelle'])">{{complaint['etatDeclarations'][0]['etat']['libelle']}}</button>
+        </span></p>
+      <p role="listitem" style="height: 90px"><span class="d-flex justify-content-center">
+        <mat-form-field appearance="fill" class="col-12" >
+          <mat-label>changer l'etat de la declaration</mat-label>
+          <mat-select (selectionChange)="changeEtat($event)">
+            <mat-option value="en attente">En attente</mat-option>
+            <mat-option value="en cours de traitement">En cours de traitement</mat-option>
+            <mat-option value="traite">Traité</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </span>
+      </p>
+      <div class="map" id="map" style="height: 400px; border-radius: 20px" class="col-8"></div>
+    </div>
+  </main>
+</div>

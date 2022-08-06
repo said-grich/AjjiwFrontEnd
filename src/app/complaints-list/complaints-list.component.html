@@ -1,0 +1,61 @@
+<main class="container">
+    <h1 class="text-center h1 title"> List des Declarations</h1>
+
+    <div class="col-12 lessons-table mat-elevation-z2" style="padding: 10px">
+      <mat-form-field appearance="standard" class="col-12">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+    </div>
+
+    <table  mat-table class="lessons-table mat-elevation-z2 dec-table" [dataSource]="dataSource" >
+      <thead>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element['id']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="photoUri">
+        <th mat-header-cell *matHeaderCellDef>Photo</th>
+        <td mat-cell *matCellDef="let element"><img class="tableImg" height="150px" width="250px" src="http://localhost:8090/{{element['photoUri']}}" alt="">  </td>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>title</th>
+        <td mat-cell *matCellDef="let element">{{element.title}}</td>
+      </ng-container>
+      <ng-container matColumnDef="utilisateur">
+        <th mat-header-cell *matHeaderCellDef>Utilisateur</th>
+        <td mat-cell *matCellDef="let element">{{element['user']['nom']+" "+element['user']['prenom']}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="adresse">
+        <th mat-header-cell *matHeaderCellDef>Adresse</th>
+        <td mat-cell *matCellDef="let element"> {{element['adresse']}} </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>category</th>
+        <td mat-cell *matCellDef="let element"> {{element['categ']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>date</th>
+        <td mat-cell *matCellDef="let element"> {{this.toLocalDate(element['dateDecl'])}} </td>
+      </ng-container>
+      <ng-container matColumnDef="etat">
+        <th mat-header-cell *matHeaderCellDef>Etat</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button [color]="this.setColorByEtat(element['etatDeclarations'][0]['etat']['libelle'])">{{element['etatDeclarations'][0]['etat']['libelle']}} </button> </td>
+      </ng-container>
+      </thead>
+      <!-- Position Column -->
+        <tbody>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row (click)="setAccComplaint(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+        </tbody>
+    </table>
+
+  <mat-paginator class="lessons-table mat-elevation-z2" #paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements"
+  ></mat-paginator>
+</main>
